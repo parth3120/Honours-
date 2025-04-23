@@ -36,7 +36,7 @@ async def upload_image(file: UploadFile = File(...)):
     img_array = np.expand_dims(img_array, axis=0)
    
     model_ans=model.predict(img_array)
-    confi=float(np.max(model_ans)-np.random.uniform(0,0.1))
+    confi=float(np.max(model_ans))
     model_ans=np.argmax(model_ans)
 
     ans=class_name[model_ans]
